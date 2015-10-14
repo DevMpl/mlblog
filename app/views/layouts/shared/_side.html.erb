@@ -1,0 +1,25 @@
+<div class="ui left vertical inverted sidebar menu">
+
+  <div class="item">
+    <%= link_to raw('<i class="large home inverted icon"></i>HOME'), '#' %>
+  </div>
+
+
+  <div class="item">
+    <div class="ui small inverted header">お知らせ</div>
+    <div class="menu">
+      <%= link_to '一覧', articles_path, {class: 'item'} %>
+			<%= link_to '新規作成', new_article_path, {class: 'item'} %>
+    </div>
+  </div>
+	
+  <div class="item">
+    <div class="ui small inverted header">カテゴリ</div>
+    <div class="menu">
+      <%= link_to '一覧', categories_path, {class: 'item'} %>
+			<%= link_to '新規作成', new_category_path, {class: 'item'} %>
+    </div>
+  </div>
+
+
+</div>

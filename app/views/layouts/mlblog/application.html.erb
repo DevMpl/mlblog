@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="robots" content="noindex,nofollow,noarchive" />
+  <title>Mlblog</title>
+  <%= stylesheet_link_tag    "mlblog/application", media: "all" %>
+  <%= javascript_include_tag "mlblog/application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	
+  <style>
+    #main{
+      margin: 0 15% 100px;
+    }
+
+    #message {
+      padding-top: 60px;
+      height: 120px;
+    }
+    label abbr {
+      color: #a94442 !important;
+      font-weight: bold;
+    }
+    .help-inline {
+      color: #a94442;
+    }
+
+    .fixed.button{
+      top: 60px;
+    }
+
+    .main .container{
+      width: 1280px;
+      margin: 0 auto;
+    }
+
+
+  </style>
+	
+	<%= yield :inline_js %>
+	
+  <div class="ui fixed inverted main menu">
+    <div class="container">
+      <div class="title item">
+        <%= link_to "MlBlog", '#' %>
+      </div>
+      <div class="right menu">
+        <div class="ui dropdown item">
+          <i class="dropdown icon"></i>
+          メニュー
+          <div class="menu">
+            <%= link_to("リンク", '#', class: 'item', method: :delete, data: { confirm: 'ログアウトしてよろしいですか？' }) %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="ui black big launch right attached fixed button">
+      <%= render partial: 'layouts/shared/side' %>
+    <i class="content icon"></i>
+  </div>
+
+  <div class="ui centered grid column" id="main">
+    <div class="ui sixteen wide column">
+      <div id="container">
+        <div id="message">
+          <% flash.each do |type, message| -%>
+          <div class="ui <%= get_message_type(type) %> message">
+            <strong><%= message %></strong>
+          </div>
+          <% end %>
+        </div>
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+</html>
