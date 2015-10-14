@@ -1,3 +1,3 @@
-class Mlblog::ApplicationController < ApplicationController
+class Mlblog::ApplicationController < Mng::ApplicationController
 	
 end
