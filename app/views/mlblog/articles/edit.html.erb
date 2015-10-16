@@ -1,15 +1,17 @@
-<h1>Editing article</h1>
+
+<h1 class="ui header"><div class="content">お知らせ 修正</div></h1>
+
+<div class="ui breadcrumb"><%= link_to "お知らせ一覧", articles_path() %>
+  <i class="right chevron icon divider"></i>
+  <div class="section active">「<%= @article.title %>」修正</div>
+</div>
 
 <%= simple_form_for @article, method: :put do |f| %>
-
   <div class="ui blue segment">
     <%= render partial: "form", locals: { f: f } %>
   </div>
 
   <%= link_to raw("<i class='ui arrow left icon'></i> 戻る"),  articles_path(), class: 'ui yellow button' %>
-  <%= f.submit "登録する" %>
+  <%= f.submit "登録する", class: 'ui yellow button' %>
 
 <% end %>
-
-<%= link_to 'Show', @article %> |
-<%= link_to 'Back', articles_path %>

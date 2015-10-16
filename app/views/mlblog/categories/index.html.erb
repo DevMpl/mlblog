@@ -1,31 +1,41 @@
-<h1>Listing categories</h1>
+<h1 class="ui header"><div class="content">カテゴリ</div></h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Url</th>
-      <th>Status</th>
-      <th>Opened at</th>
-      <th>Closed at</th>
-      <th>Text</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="ui breadcrumb">
+  <div class="section"><%= link_to "カテゴリ一覧", categories_path() %></div>
+</div>
+
+<% if @categories.present? %>
+
+<table class="ui celled table">
+    <thead>
+      <tr>
+				<th width="5%">ID</th>
+        <th width="70%">タイトル</th>
+        <th class="center aligned" width="10%">ステータス</th>
+        <th class="center aligned" width="5%">編集</th>
+        <th class="center aligned" width="5%">削除</th>
+      </tr>
+    </thead>
 
   <tbody>
     <% @categories.each do |category| %>
       <tr>
-        <td><%= category.name %></td>
-        <td><%= category.slug %></td>
-        <td><%= category.status %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+				<td><%= category.id %></td>
+        <td><p><%= category.name %></p></td>
+        <td class="center aligned">
+          <%= status_label(category.status) %>
+        </td>
+        <td><%= link_to raw('<i class="green large edit icon link icon"></i>'), edit_category_path(category) %></td>
+        <td><%= link_to raw('<i class="red large remove link icon"></i>'), category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
+<% else %>
 
-<%= link_to 'New Category', new_category_path %>
+  <div class="ui info message">
+    カテゴリは見つかりませんでした
+  </div>
+
+<% end %>

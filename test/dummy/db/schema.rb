@@ -11,12 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151013074130) do
+ActiveRecord::Schema.define(version: 20151013075130) do
 
-  create_table "mlblog_articles", force: true do |t|
+  create_table "mlblog_articles", force: :cascade do |t|
     t.string   "title"
     t.string   "url"
     t.string   "status"
+    t.string   "category_id"
     t.datetime "opened_at"
     t.datetime "closed_at"
     t.text     "text"
@@ -24,7 +25,7 @@ ActiveRecord::Schema.define(version: 20151013074130) do
     t.datetime "updated_at"
   end
 
-  create_table "mlblog_categories", force: true do |t|
+  create_table "mlblog_categories", force: :cascade do |t|
     t.string   "name"
     t.string   "slug"
     t.string   "status"
@@ -36,5 +37,9 @@ ActiveRecord::Schema.define(version: 20151013074130) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "mlblog_categories", ["lft"], name: "index_mlblog_categories_on_lft"
+  add_index "mlblog_categories", ["parent_id"], name: "index_mlblog_categories_on_parent_id"
+  add_index "mlblog_categories", ["rgt"], name: "index_mlblog_categories_on_rgt"
 
 end

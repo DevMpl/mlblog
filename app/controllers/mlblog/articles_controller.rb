@@ -34,7 +34,7 @@ class Mlblog::ArticlesController < Mlblog::ApplicationController
     # PATCH/PUT /articles/1
     def update
       if @article.update(article_params)
-        redirect_to @article, notice: 'Article was successfully updated.'
+        redirect_to edit_article_path(@article), notice: 'Article was successfully updated.'
       else
         render :edit
       end
@@ -54,6 +54,6 @@ class Mlblog::ArticlesController < Mlblog::ApplicationController
 
       # Only allow a trusted parameter "white list" through.
       def article_params
-        params.require(:article).permit(:title, :url, :status, :opened_at, :closed_at, :text)
+        params.require(:article).permit(:title, :url, :status, :category_id, :opened_at, :closed_at, :text)
 				end
 end

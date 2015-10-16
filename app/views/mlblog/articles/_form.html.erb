@@ -1,24 +1,42 @@
+<script>
+  jQuery(function($){
+    $('[id$=_at]').datetimepicker({
+      lang: 'ja',
+      step: 10,
+      format: 'Y-m-d H:i:00'
+    });
+  })
+</script>
+
+
 <div class="ui blue header">基本情報</div>
 
 <%= f.error_notification %>
 
 <div class="fields">
-  <div class="wide twelve field">
+
+  <div class="wide sixteen field">
     <%= f.input :title %>
   </div>
-  <div class="four wide field">
-    <%= f.input :opened_at, as: :string %>
-  </div>
-	
-  <div class="four wide field">
-    <%#= f.input :closed_at, as: :string %>
-  </div>
+
 </div>
 
 <div class="fields">
   <div class="eight wide field">
     <%= f.input :url %>
   </div>
+	
+  <div class="six wide field">
+    <%= f.input :opened_at, as: :string %>
+  </div>
+	
+</div>
+
+
+<div class="fields">
+	<div class="five wide field">
+		<%= f.input :category_id, as: :select, required: true, collection: nested_set_options(Mlblog::Category) {|i| "#{'-' * i.level} #{i.name}" }, input_html: { class: 'ui fluid dropdown selection' } %>
+	</div>
 </div>
 
 
@@ -27,5 +45,7 @@
 </div>
 
 <div class="inline fields">
-  <%= f.input :status, as: :radio_buttons, collection: statuses.invert %>
+	<div class="five wide field">
+		<%= f.input :status, as: :radio_buttons, collection: statuses.invert %>
+	</div>
 </div>

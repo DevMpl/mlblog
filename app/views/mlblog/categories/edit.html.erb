@@ -1,6 +1,17 @@
-<h1>Editing article</h1>
 
-<%= render 'form' %>
+<h1 class="ui header"><div class="content">カテゴリ 修正</div></h1>
 
-<%= link_to 'Show', @article %> |
-<%= link_to 'Back', articles_path %>
+<div class="ui breadcrumb"><%= link_to "カテゴリ一覧", categories_path() %>
+  <i class="right chevron icon divider"></i>
+  <div class="section active">カテゴリ <%= @category.name %>修正</div>
+</div>
+
+<%= simple_form_for @category, method: :put do |f| %>
+  <div class="ui blue segment">
+    <%= render partial: "form", locals: { f: f } %>
+  </div>
+
+  <%= link_to raw("<i class='ui arrow left icon'></i> 戻る"),  categories_path(), class: 'ui yellow button' %>
+  <%= f.submit "登録する", class: 'ui yellow button' %>
+
+<% end %>

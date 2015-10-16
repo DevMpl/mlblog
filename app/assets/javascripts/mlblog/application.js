@@ -16,7 +16,7 @@
 //= require_tree .
 //= require semantic-ui
 //= require jquery-fileupload
-//= require mlblog/jquery.datetimepicker/jquery.datetimepicker
+//= require jquery.datetimepicker
 	
 jQuery(function($){
 	

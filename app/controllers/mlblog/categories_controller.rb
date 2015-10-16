@@ -25,7 +25,7 @@ class Mlblog::CategoriesController < Mlblog::ApplicationController
       @category = Mlblog::Category.new(category_params)
 
       if @category.save
-        redirect_to @category, notice: 'Category was successfully created.'
+        redirect_to edit_category_path(@category), notice: 'Category was successfully created.'
       else
         render :new
       end
@@ -34,7 +34,7 @@ class Mlblog::CategoriesController < Mlblog::ApplicationController
     # PATCH/PUT /categories/1
     def update
       if @category.update(category_params)
-        redirect_to @category, notice: 'Category was successfully updated.'
+        redirect_to edit_category_path(@category), notice: 'Category was successfully updated.'
       else
         render :edit
       end

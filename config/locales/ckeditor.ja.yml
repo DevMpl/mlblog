@@ -1,0 +1,8 @@
+ja:
+  ckeditor:
+    page_title: "ファイルマネージャー"
+    confirm_delete: "削除してよろしいですか？"
+    buttons:
+      cancel: "キャンセル"
+      upload: "アップロード"
+      delete: "削除" 

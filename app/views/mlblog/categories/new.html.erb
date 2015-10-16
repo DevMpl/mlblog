@@ -1,7 +1,7 @@
 
 <h1 class="ui header"><div class="content">カテゴリ 新規作成</div></h1>
 
-<div class="ui breadcrumb"><%= link_to "カテゴリ一覧", categories_path() %></div>
+<div class="ui breadcrumb"><%= link_to "カテゴリ一覧", categories_path() %>
   <i class="right chevron icon divider"></i>
   <div class="section active">カテゴリ 新規作成</div>
 </div>
@@ -13,6 +13,6 @@
   </div>
 
   <%= link_to raw("<i class='ui arrow left icon'></i> 戻る"),  categories_path(), class: 'ui yellow button' %>
-  <%= f.submit "登録する" %>
+  <%= f.submit "登録する", class: 'ui yellow button' %>
 
 <% end %>

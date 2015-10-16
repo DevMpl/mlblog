@@ -1,0 +1,61 @@
+
+ja:
+  activerecord:
+    attributes:
+      created_at: 作成日
+      updated_at: 最終更新日
+      image:
+        image_content_type: 画像は
+        image_file_size: 画像の
+        image: 画像
+      user:
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード（再入力）
+        remember_me: 次回からパスワード入力を省く
+      mlblog/article:
+        title: タイトル
+        url: 外部リンク
+        category_id: カテゴリ
+        opened_at: 公開日
+        status: ステータス
+      mlblog/category:
+        id: ID
+        name: カテゴリ名
+        slug: スラッグ
+        parent_id: 親カテゴリ
+        status: ステータス
+      topic:
+        id: ID
+        category_id: カテゴリ
+        title: タイトル
+        genre_name: ジャンル名
+        published_on: 公開日
+        url: リンク
+        content: 本文
+        status: ステータス
+      event:
+        id: ID
+        title: タイトル
+        capacity: 定員数
+        lecturer: 講師
+        opened_at: 開演時間
+        closed_at: 終演時間
+        fee: 参加費
+        place: 会場
+        note: 備考
+        content: イベント詳細
+        status: ステータス
+        contact: 問い合わせ先
+        sponsor: 主催者
+        url: 参考URL
+  activemodel:
+    attributes:
+      inquiry:
+        name: 名前
+        email: メールアドレス
+        name_kana: 名前（ふりがな）
+        address: 住所
+        tel: 電話番号
+        kind: 問い合わせ種類
+        content: 問い合わせ内容

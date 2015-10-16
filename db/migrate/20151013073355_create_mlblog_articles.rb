@@ -4,6 +4,7 @@ class CreateMlblogArticles < ActiveRecord::Migration
       t.string :title
       t.string :url
       t.string :status
+			t.string :category_id
       t.datetime :opened_at
       t.datetime :closed_at
       t.text :text

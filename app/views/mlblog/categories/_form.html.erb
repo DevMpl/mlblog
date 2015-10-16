@@ -1,34 +1,32 @@
-<%= form_for(@category) do |f| %>
-  <% if @category.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@category.errors.count, "error") %> prohibited this article from being saved:</h2>
 
-      <ul>
-      <% @category.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<div class="ui blue header">基本情報</div>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :slug %><br>
-    <%= f.text_field :slug %>
-  </div>
-  <div class="field">
-    <%= f.label :status %><br>
-    <%= f.text_field :status %>
+<%= f.error_notification %>
+
+<div class="fields">
+  <div class="wide sixteen field">
+    <%= f.input :name %>
   </div>
 	
-	<div>
-	<%= f.select :parent_id, nested_set_options(Mlblog::Category) {|i| "#{'-' * i.level} #{i.name}" }, { selected: @category.parent_id, include_blank: true } %>
-	</div>
- 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="wide sixteen field">
+    <%= f.input :slug %>
   </div>
-<% end %>
+</div>
+
+<div class="fields">
+	<div class="seven wide field">
+		<%= f.input :parent_id, as: :select, required: true, collection: nested_set_options(Mlblog::Category) {|i| "#{'-' * i.level} #{i.name}" }, 
+								input_html: { class: 'ui fluid dropdown selection' } , :disabled => @category.child?
+		%>
+		<% if @category.child? %>
+				<p>子カテゴリが存在するので変更できません</p>
+		<% end %>
+	</div>
+</div>
+
+
+<div class="inline fields">
+	<div class="five wide field">
+		<%= f.input :status, as: :radio_buttons, collection: statuses.invert %>
+	</div>
+</div>

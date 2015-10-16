@@ -13,6 +13,14 @@ module Mlblog
 	    types[type]
 	  end
 		
+	  def status_label(status)
+	    if status == 'public'
+	      return '<span class="ui small teal label">公開中</span>'.html_safe
+	    else
+	      return '<span class="ui small label">非公開中</span>'.html_safe
+	    end
+	  end
+		
 		def method_missing method, *args, &block
       if method.in? Rails.application.routes.url_helpers.instance_methods
         main_app.send(method, *args)
