@@ -14,10 +14,11 @@
 </div>
 
 <div class="fields">
-	<div class="seven wide field">
-		<%= f.input :parent_id, as: :select, required: true, collection: nested_set_options(Mlblog::Category) {|i| "#{'-' * i.level} #{i.name}" }, 
+	<div class="eight wide field">
+		<%= f.input :parent_id, as: :select, required: true, collection: nested_set_options(Mlblog::Category.where.not(id: @category.id)) {|i| "#{'-' * i.level} #{i.name}" }, 
 								input_html: { class: 'ui fluid dropdown selection' } , :disabled => @category.child?
 		%>
+		<p>※何も選択しない場合は、Root（親カテゴリ）</p>
 		<% if @category.child? %>
 				<p>子カテゴリが存在するので変更できません</p>
 		<% end %>

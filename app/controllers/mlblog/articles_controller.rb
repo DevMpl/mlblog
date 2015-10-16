@@ -25,7 +25,7 @@ class Mlblog::ArticlesController < Mlblog::ApplicationController
       @article = Mlblog::Article.new(article_params)
 
       if @article.save
-        redirect_to edit_article_path(@article), notice: 'Article was successfully created.'
+        redirect_to edit_article_path(@article), notice: '記事の新規作成が完了しました'
       else
         render :new
       end
@@ -34,7 +34,7 @@ class Mlblog::ArticlesController < Mlblog::ApplicationController
     # PATCH/PUT /articles/1
     def update
       if @article.update(article_params)
-        redirect_to edit_article_path(@article), notice: 'Article was successfully updated.'
+        redirect_to edit_article_path(@article), notice: '記事の修正が完了しました'
       else
         render :edit
       end
@@ -43,7 +43,7 @@ class Mlblog::ArticlesController < Mlblog::ApplicationController
     # DELETE /articles/1
     def destroy
       @article.destroy
-      redirect_to articles_url, notice: 'Article was successfully destroyed.'
+      redirect_to articles_url, notice: '記事の削除が完了しました'
     end
 
     private
