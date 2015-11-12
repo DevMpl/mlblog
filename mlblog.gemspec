@@ -7,11 +7,11 @@ require "mlblog/version"
 Gem::Specification.new do |s|
   s.name        = "mlblog"
   s.version     = Mlblog::VERSION
-  s.authors     = ["TODO: MediaLab harada"]
-  s.email       = ["TODO: harada@medialab.co.jp"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Mlblog."
-  s.description = "TODO: Description of Mlblog."
+  s.authors     = ["MediaLab harada"]
+  s.email       = ["harada@medialab.co.jp"]
+  s.homepage    = ""
+  s.summary     = "Summary of Mlblog."
+  s.description = "Description of Mlblog."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
